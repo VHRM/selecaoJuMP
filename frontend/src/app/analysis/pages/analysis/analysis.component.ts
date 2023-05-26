@@ -11,7 +11,7 @@ export class AnalysisComponent {
   selectedMovimento: string = 'Expedição de movimento';
   processoList: Processo[] = [];
 
-  constructor() {
+  constructor(facade: AnalysisFacade) {
     facade.getProcessoData().subscribe((processoData) => {
       this.processoList = processoData;
     });
