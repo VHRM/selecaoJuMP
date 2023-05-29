@@ -1,0 +1,4 @@
+<div id="fluxograma">
+    <app-fluxograma-statistics [data]="resumo"></app-fluxograma-statistics>
+    <app-fluxograma-visualizer [data]="visualizacao" (viewMovimentoDetails)="viewMovimentoDetailsHandler($event)"></app-fluxograma-visualizer>
+</div>

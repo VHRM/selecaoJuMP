@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Processo } from '../types/Processo';
+import { Processo, ProcessoByName } from '../types/Processo';
 import { of } from 'rxjs';
+import { env } from 'src/environment/environment';
 
 @Injectable()
 export class AnalysisApi {
@@ -12,38 +13,75 @@ export class AnalysisApi {
     return of([
       {
         NPU: '0000000-00.0000.0.00.0000',
-        totalMovimentos: 1,
-        totalDuration: 10,
+        movimentosCount: 1,
+        duration: 10,
       },
       {
         NPU: '0000000-00.0000.0.00.0001',
-        totalMovimentos: 2,
-        totalDuration: 20,
+        movimentosCount: 2,
+        duration: 20,
       },
       {
         NPU: '0000000-00.0000.0.00.0002',
-        totalMovimentos: 3,
-        totalDuration: 30,
+        movimentosCount: 3,
+        duration: 30,
       },
       {
         NPU: '0000000-00.0000.0.00.0003',
-        totalMovimentos: 4,
-        totalDuration: 40,
+        movimentosCount: 4,
+        duration: 40,
       },
       {
         NPU: '0000000-00.0000.0.00.0004',
-        totalMovimentos: 5,
-        totalDuration: 50,
+        movimentosCount: 5,
+        duration: 50,
       },
       {
         NPU: '0000000-00.0000.0.00.0005',
-        totalMovimentos: 6,
-        totalDuration: 60,
+        movimentosCount: 6,
+        duration: 60,
+      },
+      {
+        NPU: '0000000-00.0000.0.00.0006',
+        movimentosCount: 6,
+        duration: 60,
+      },
+      {
+        NPU: '0000000-00.0000.0.00.0007',
+        movimentosCount: 6,
+        duration: 60,
+      },
+      {
+        NPU: '0000000-00.0000.0.00.0008',
+        movimentosCount: 6,
+        duration: 60,
+      },
+      {
+        NPU: '0000000-00.0000.0.00.0009',
+        movimentosCount: 6,
+        duration: 60,
+      },
+      {
+        NPU: '0000000-00.0000.0.00.0010',
+        movimentosCount: 6,
+        duration: 60,
+      },
+      {
+        NPU: '0000000-00.0000.0.00.0011',
+        movimentosCount: 6,
+        duration: 60,
+      },
+      {
+        NPU: '0000000-00.0000.0.00.0012',
+        movimentosCount: 6,
+        duration: 60,
       },
     ] as Processo[])
   }
 
   public fetchProcessosDataByName(name: string) {
-    return this.http.get<Processo[]>(`/api/processos/${name}/`);
+    return this.http.post<ProcessoByName>(`${env.apiUrl}/api/processos/`, {
+      "movimento": name
+    });
   }
 }

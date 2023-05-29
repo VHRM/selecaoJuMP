@@ -21,7 +21,7 @@ import { MatPaginator } from '@angular/material/paginator';
 export class AnalysisTableComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() data: readonly Processo[] = [];
   @Input() displayedColumns: string[] = [
-    'NPU', 'movimentos', 'totalMovimentos', 'duration'
+    'NPU', 'pinnedMovimentoCount', 'movimentosCount', 'duration'
   ];
 
   dataSource!: MatTableDataSource<Processo>;
@@ -36,11 +36,10 @@ export class AnalysisTableComponent implements OnInit, AfterViewInit, OnChanges 
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
-    // TODO: Fix paginator
-    // TODO: Sort not working on movimentos/totalMovimentos
+    this.dataSource.paginator = this.paginator;
   }
 
-  ngOnChanges(): void {    
+  ngOnChanges(): void {
     const data = Object.assign([], this.data);
     this.dataSource = new MatTableDataSource(data);
     this.dataSource.sort = this.sort;

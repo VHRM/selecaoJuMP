@@ -6,10 +6,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from '../app-routing.module';
 import { ImageApiService } from './services/image-api.service';
+import { TimeElapsedPipe } from '../pipes/time-elapsed.pipe';
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    TimeElapsedPipe
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import { ImageApiService } from './services/image-api.service';
   ],
   bootstrap: [],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    TimeElapsedPipe
   ]
 })
 export class SharedModule { }

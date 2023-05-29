@@ -1,0 +1,14 @@
+#visualizer {
+    width: 95%;
+    margin: 15px auto 0 auto;
+
+    border: 2px solid #eee;
+    border-radius: 5px;
+    padding: 15px;
+
+    .frame {
+        width: max-content;
+        display: flex;
+        margin: 0 auto;
+    }
+}

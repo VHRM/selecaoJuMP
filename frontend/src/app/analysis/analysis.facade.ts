@@ -18,4 +18,11 @@ export class AnalysisFacade {
     public getProcessoData() {
         return this.state.getProcessoData();
     }
+
+    public fetchProcessoDataByName(value: string) {
+        console.log('analysis facade')
+        this.api.fetchProcessosDataByName(value).subscribe((processosData) => {
+            this.state.setProcessoData(processosData.cases);
+        });
+    }
 }

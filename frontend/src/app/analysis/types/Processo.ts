@@ -1,6 +1,10 @@
 export interface Processo {
     NPU: string;
-    movimentos?: number;
-    totalDuration: number;
-    totalMovimentos: number;
+    pinnedMovimentosCount?: number;
+    duration: number;
+    movimentosCount: number;
+}
+
+export interface ProcessoByName {
+    cases: Processo[];
 }

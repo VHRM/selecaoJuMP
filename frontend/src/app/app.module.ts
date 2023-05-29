@@ -7,6 +7,8 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AnalysisModule } from './analysis/analysis.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FluxogramaModule } from './fluxograma/fluxograma.module';
+import { TimeElapsedPipe } from './pipes/time-elapsed.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     AnalysisModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FluxogramaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

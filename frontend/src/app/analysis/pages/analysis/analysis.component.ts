@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { AnalysisFacade } from '../../analysis.facade';
 import { Processo } from '../../types/Processo';
 
@@ -7,13 +7,17 @@ import { Processo } from '../../types/Processo';
   templateUrl: './analysis.component.html',
   styleUrls: ['./analysis.component.scss']
 })
-export class AnalysisComponent {
+export class AnalysisComponent implements OnDestroy{
   selectedMovimento: string = 'Expedição de movimento';
   processoList: Processo[] = [];
 
-  constructor(facade: AnalysisFacade) {
+  constructor(private readonly facade: AnalysisFacade) {
     facade.getProcessoData().subscribe((processoData) => {
       this.processoList = processoData;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.facade.fetchProcessosData();
   }
 }

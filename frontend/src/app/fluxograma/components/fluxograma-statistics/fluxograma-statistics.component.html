@@ -1,0 +1,23 @@
+<div id="statistics">
+    <!-- REFATORAR PARA FAZER COM FLEX -->
+    <div class="card">
+        <div class="title">Quantidade de movimentos</div>
+        <div class="content">{{data.movimentosCount}}</div>
+    </div>
+    <div class="card">
+        <div class="title">Quantidade de processos</div>
+        <div class="content">{{data.casesCount}}</div>
+    </div>
+    <div class="card">
+        <div class="title">Média da duração dos movimentos</div>
+        <div class="content">{{data.avgMovimentoDuration | timeElapsed}}</div>
+    </div>
+    <div class="card">
+        <div class="title">Média da duração dos processos</div>
+        <div class="content">{{data.avgCaseDuration | timeElapsed}}</div>
+    </div>
+    <div class="card">
+        <div class="title">Média de movimentos por processo</div>
+        <div class="content">{{data.avgMovimentosPerCase | timeElapsed}}</div>
+    </div>
+</div>
